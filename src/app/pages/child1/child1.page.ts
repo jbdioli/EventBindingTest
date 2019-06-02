@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-child1',
@@ -6,15 +7,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./child1.page.scss'],
 })
 export class Child1Page implements OnInit {
-  @Output() sendMaisonData: EventEmitter<any[]> = new EventEmitter<any[]>();
+  // @Output() sendMaisonData: EventEmitter<any[]> = new EventEmitter<any[]>();
 
   private maisonData: any[] = [{"chambre":3, "salledebain":1, "cuisine":1, "salon":1}];
 
-  constructor() { }
+  constructor(private ev: Events) { }
 
   ngOnInit() {
-    this.sendMaisonData.emit(this.maisonData);
-    console.log('Event Emitter : ', this.sendMaisonData);
+    // this.sendMaisonData.emit(this.maisonData);
+    this.ev.publish('child1', this.maisonData);
+    console.log('Event Emitter : ', this.ev);
   }
 
 }

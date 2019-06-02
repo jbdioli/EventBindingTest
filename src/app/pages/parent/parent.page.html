@@ -1,11 +1,37 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Parent</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-<app-child2 (sendAutomobileData)="getChildData($event)"></app-child2>
-<!-- <app-child2></app-child2> -->
-<!-- <p *ngFor="let a from automobileData"></p> -->
+<app-child2 (sendAutomobileData)="getChildDataAutomobile($event)"></app-child2>
 </ion-content>
+
+<ion-split-pane>
+  <ion-menu contentId="content">
+
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)">
+            <ion-label class="C-Text">
+              {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+
+</ion-split-pane>
