@@ -28,22 +28,24 @@ export class ParentPage implements OnInit {
     });
   }
   ngOnInit() {
-    this.ev.subscribe('child1', value => {
-      this.maisonData = value;
-      console.log('Array Data maison : ', this.maisonData);
-    });
+    // Other solution
+    // this.ev.subscribe('child1', value => {
+    //   this.maisonData = value;
+    //   console.log('Array Data maison : ', this.maisonData);
+    // });
 
-    console.log('Array Data automobile : ', this.automobileData);
+    console.log('Array Data automobile : ', this.automobileData); // From Child 2
+    console.log('Array Data maison : ', this.maisonData); // From Child 1
   }
 
-  getChildDataAutomobile(array: any[]) {
+  getChild2Data(array: any[]) {
     this.automobileData.push(array);
-    // console.log('Get Array Automobile: ', this.automobileData);
+    // console.log('Get Array from child2: ', this.automobileData);
   }
 
-  // getChildDataMaison(array: any[]) {
-  //   this.maisonData.push(array);
-  //   console.log('Get Array Maison: ', this.maisonData);
-  // }
+  getChild1Data(array: any[]) {
+    this.maisonData.push(array);
+    console.log('Get Array from Child1: ', this.maisonData);
+  }
 
 }

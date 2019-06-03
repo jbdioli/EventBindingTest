@@ -1,11 +1,11 @@
 <!-- <ion-header>
   <ion-toolbar>
-    <ion-title>Parent</ion-title>
+    <ion-title> Parent </ion-title>
   </ion-toolbar>
 </ion-header> -->
 
 <ion-content>
-<app-child2 (sendAutomobileData)="getChildDataAutomobile($event)"></app-child2>
+<app-child2 (sendAutomobileData)="getChild2Data($event)"></app-child2>
 </ion-content>
 
 <ion-split-pane>
@@ -20,7 +20,7 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)">
+          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" (sendMaisonData)="getChild1Data($event)">
             <ion-label class="C-Text">
               {{ p.title }}
             </ion-label>

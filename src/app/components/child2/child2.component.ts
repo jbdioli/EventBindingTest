@@ -15,7 +15,7 @@ export class Child2Component implements OnInit {
 
   ngOnInit() {
     this.sendAutomobileData.emit(this.automobileData);
-    // console.log('Event Emitter : ', this.sendAutomobileData);
+    // console.log('Event Emitter from Child2: ', this.sendAutomobileData);
   }
 
 }
