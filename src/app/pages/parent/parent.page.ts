@@ -29,18 +29,20 @@ export class ParentPage implements OnInit {
   }
   ngOnInit() {
     // Other solution
+
     // this.ev.subscribe('child1', value => {
     //   this.maisonData = value;
     //   console.log('Array Data maison : ', this.maisonData);
     // });
 
-    console.log('Array Data automobile : ', this.automobileData); // From Child 2
-    console.log('Array Data maison : ', this.maisonData); // From Child 1
+
+    console.log('Array Data automobile from Child 2 : ', this.automobileData); // From Child 2
+    console.log('Array Data maison from Child 1 : ', this.maisonData); // From Child 1
   }
 
   getChild2Data(array: any[]) {
     this.automobileData.push(array);
-    // console.log('Get Array from child2: ', this.automobileData);
+    console.log('Get Array from child2: ', this.automobileData);
   }
 
   getChild1Data(array: any[]) {

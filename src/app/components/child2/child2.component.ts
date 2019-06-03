@@ -7,15 +7,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class Child2Component implements OnInit {
 
-  @Output() sendAutomobileData: EventEmitter<any[]> = new EventEmitter<any[]>();
+  @Output() sendChild2Data: EventEmitter<any[]> = new EventEmitter<any[]>();
 
   private automobileData: any[] = [{"type":"voiture", "marque":"Renault", "model":"Clio"}];
 
   constructor() { }
 
   ngOnInit() {
-    this.sendAutomobileData.emit(this.automobileData);
-    // console.log('Event Emitter from Child2: ', this.sendAutomobileData);
+    this.sendChild2Data.emit(this.automobileData);
+    console.log('Event Emitter from Child2: ', this.sendChild2Data);
   }
 
 }

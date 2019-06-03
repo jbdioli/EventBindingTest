@@ -4,10 +4,13 @@
   </ion-toolbar>
 </ion-header> -->
 
+
+<!-- Getting data from Child 2 -->
 <ion-content>
-<app-child2 (sendAutomobileData)="getChild2Data($event)"></app-child2>
+<app-child2 (sendChild2Data)="getChild2Data($event)"></app-child2>
 </ion-content>
 
+<!-- Getting data from Child 1 with a slide menu -->
 <ion-split-pane>
   <ion-menu contentId="content">
 
@@ -20,7 +23,7 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" (sendMaisonData)="getChild1Data($event)">
+          <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath.startsWith(p.url)" (sendChild1Data)="getChild1Data($event)">
             <ion-label class="C-Text">
               {{ p.title }}
             </ion-label>
